@@ -1,0 +1,218 @@
+/* App.css - Complete with full-screen support and infinite scroll */
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #8b5cf6;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: #3b82f6;
+  --color-white: #ffffff;
+  --color-light: #f3f4f6;
+  --color-dark: #1f2937;
+  --color-gray: #6b7280;
+  --color-gray-light: #9ca3af;
+  --color-gray-dark: #4b5563;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #111827;
+  background: #f9fafb;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* Full screen page support */
+.full-screen-page {
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  left: 0;
+  right: 0;
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main .full-screen-page {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Button Styles */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-small { padding: 4px 8px; font-size: 12px; }
+.btn-medium { padding: 8px 16px; font-size: 14px; }
+.btn-large { padding: 12px 24px; font-size: 16px; }
+
+/* Loading state */
+.btn-loading { pointer-events: none; }
+.btn-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Not Found Page */
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 48px 24px;
+}
+
+.not-found h1 { font-size: 3rem; color: #111827; margin-bottom: 16px; }
+.not-found p { font-size: 1.2rem; color: #6b7280; }
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-5 { margin-top: 24px; }
+
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 24px; }
+
+.p-1 { padding: 4px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+.p-5 { padding: 24px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar + .full-screen-page { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 480px) {
+  .not-found h1 { font-size: 2rem; }
+  .not-found p { font-size: 1rem; }
+}
+
+/* ========== MOBILE ONLY - FULL WIDTH FOR INFINITE SCROLL ========== */
+@media (max-width: 767px) {
+  .app, .app-main, .full-screen-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .navbar {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  [class*="container"], [class*="Container"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .app-main {
+    min-height: auto !important;
+    padding-bottom: 0 !important;
+  }
+
+  .feed__container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}

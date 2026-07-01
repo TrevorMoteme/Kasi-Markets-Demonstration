@@ -1,0 +1,813 @@
+/* PostCard.css - Updated to match Business Profile design language */
+/* Sharp corners, glass morphism, consistent purple accents */
+/* Distance Badge: Purple pill shape aligned with business logo */
+/* Logo: Round shape with border-radius 50% */
+/* Carousel Arrows: Round shape for usability */
+
+/* ===== CSS VARIABLES (Matching Business Profile) ===== */
+:root {
+  --postcard-primary: #8b5cf6;
+  --postcard-primary-dark: #7c3aed;
+  --postcard-primary-light: #a855f7;
+  --postcard-primary-glow: rgba(139, 92, 246, 0.4);
+  --postcard-secondary: #c084fc;
+  --postcard-success: #10b981;
+  --postcard-danger: #ef4444;
+  --postcard-warning: #f59e0b;
+  --postcard-text-primary: #ffffff;
+  --postcard-text-secondary: rgba(255, 255, 255, 0.85);
+  --postcard-text-tertiary: rgba(255, 255, 255, 0.6);
+  --postcard-text-muted: rgba(255, 255, 255, 0.5);
+  --postcard-bg-card: rgba(18, 18, 18, 0.7);
+  --postcard-bg-glass: rgba(0, 0, 0, 0.6);
+  --postcard-bg-glass-light: rgba(255, 255, 255, 0.08);
+  --postcard-border: rgba(255, 255, 255, 0.12);
+  --postcard-border-light: rgba(255, 255, 255, 0.05);
+  --postcard-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --postcard-glow-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+  --postcard-radius-sm: 0px;
+  --postcard-radius-md: 0px;
+  --postcard-radius-lg: 0px;
+  --postcard-radius-xl: 0px;
+  --postcard-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --postcard-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --postcard-blur: blur(20px);
+  --postcard-blur-sm: blur(10px);
+}
+
+/* ===== DESKTOP BASE CARD - Sharp 90-degree corners ===== */
+.post-card {
+  background: transparent !important;
+  border-radius: 0px !important;
+  padding: 0 !important;
+  margin-bottom: 20px;
+  border: none !important;
+  max-width: 100% !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transition: var(--postcard-transition);
+  animation: slideUp 0.4s ease-out;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--postcard-glass-shadow);
+  }
+}
+
+/* ===== HIDE UNWANTED ELEMENTS ===== */
+.post-card__top-bar,
+.post-card__header,
+.post-card__score-indicator-modern,
+.post-card__engagement-bar,
+.post-card__engagement-stat,
+.post-card__engagement-share,
+.post-card__engagement-stats,
+.post-card__menu {
+  display: none !important;
+}
+
+/* ===== DISTANCE BADGE - PURPLE PILL SHAPE (Matching Profile) ===== */
+.post-card__distance-badge-modern {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #8b5cf6, #19004a);
+  padding: 6px 14px;
+  border-radius: 30px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  transition: var(--postcard-transition);
+}
+
+.post-card__distance-badge-modern:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.post-card__distance-badge-modern span {
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+.post-card__distance-badge-modern .distance-icon {
+  font-size: 12px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+/* ===== MEDIA CONTAINER ===== */
+.post-card__media-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 22;
+  background: #0a0a0a;
+  border-radius: 0px !important;
+  overflow: hidden;
+  margin-bottom: 0;
+  box-shadow: none !important;
+}
+
+.post-card__video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000000;
+}
+
+.post-card__video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #000000;
+}
+
+/* Carousel Container */
+.post-card__carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.post-card__carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  height: 100%;
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+.post-card__carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.post-card__carousel-item {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  aspect-ratio: 16 / 22;
+}
+
+.post-card__carousel-media {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #000000;
+}
+
+/* ===== CAROUSEL ARROWS - ROUND FOR USABILITY ===== */
+.post-card__carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50% !important;
+  background: rgba(0, 0, 0, 0.65) !important;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: var(--postcard-transition);
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.post-card__carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.85) !important;
+  transform: translateY(-50%) scale(1.08);
+  border-color: rgba(139, 92, 246, 0.5) !important;
+}
+
+.post-card__carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.post-card__carousel-arrow--left {
+  left: 16px;
+}
+
+.post-card__carousel-arrow--right {
+  right: 16px;
+}
+
+/* Carousel Dots - Sharp square dots */
+.post-card__carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.post-card__carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 0px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: var(--postcard-transition);
+}
+
+.post-card__carousel-dot.active {
+  width: 20px;
+  border-radius: 0px;
+  background: #ffffff;
+}
+
+.post-card__carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== HIDE ALL TEXT SECTIONS ===== */
+.post-card__likes,
+.post-card__caption,
+.post-card__hashtags,
+.post-card__timestamp,
+.post-card__comment-input,
+.post-card__content,
+.post-card__title {
+  display: none !important;
+}
+
+/* Heart Animation Overlay */
+.post-card__heart-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 80px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+  animation: igHeartPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes igHeartPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.9;
+  }
+  60% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ===== OVERLAY TOP - Business info overlay (Matching Profile) ===== */
+.post-card__overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 0px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Business Info Wrapper - contains logo + details + distance in a row */
+.post-card__business-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Business Info (Logo + Name + Time) */
+.post-card__business-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  pointer-events: auto;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Distance Badge container - aligned with business info */
+.post-card__distance-wrapper {
+  display: inline-flex;
+  align-items: center;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+/* ===== LOGO - ROUND SHAPE (Consistent with Profile) ===== */
+.post-card__logo-wrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.post-card__logo-wrapper.has-story {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* ROUND LOGO - 50% border-radius */
+.post-card__business-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50% !important;
+  object-fit: cover;
+}
+
+.post-card__business-logo-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, var(--postcard-primary), var(--postcard-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+}
+
+.post-card__business-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.post-card__business-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  flex-wrap: nowrap;
+}
+
+.post-card__business-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: var(--postcard-transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+@media (hover: hover) {
+  .post-card__business-link:hover {
+    color: var(--postcard-primary);
+  }
+}
+
+.post-card__verified-badge {
+  color: var(--postcard-primary);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 0px;
+  font-size: 10px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.post-card__type {
+  text-transform: capitalize;
+}
+
+.post-card__time::before {
+  content: "•";
+  margin-right: 6px;
+}
+
+/* ===== OVERLAY BOTTOM - Hashtags only (Matching Profile) ===== */
+.post-card__overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 16px 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 0px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.post-card__overlay-bottom .post-card__hashtags-preview {
+  pointer-events: auto;
+}
+
+.post-card__overlay-bottom .post-card__title,
+.post-card__overlay-bottom .post-card__caption-preview {
+  display: none !important;
+}
+
+.post-card__overlay-bottom .post-card__hashtag {
+  color: var(--postcard-primary-light);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 13px;
+  font-weight: 500;
+  transition: var(--postcard-transition);
+}
+
+.post-card__overlay-bottom .post-card__hashtag:hover {
+  color: var(--postcard-primary);
+}
+
+.post-card__hashtags-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+/* ===== ACTIONS OVERLAY ===== */
+.post-card__actions-overlay {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.post-card__action-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  padding: 6px 10px;
+  transition: var(--postcard-transition);
+  font-size: 14px;
+}
+
+.post-card__action-btn:hover {
+  color: var(--postcard-primary);
+  transform: translateY(-2px);
+}
+
+.post-card__action-btn:active {
+  transform: scale(0.95);
+}
+
+.post-card__action-count {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.post-card__icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes imageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.post-card__carousel-media,
+.post-card__business-logo {
+  animation: imageFadeIn 0.2s ease-in;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .post-card { animation: none; }
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width: 767px) {
+  /* Feed background - Pure black */
+  .feed,
+  .feed__container,
+  .feed__main,
+  .feed__scrollable-content,
+  .feed__posts-list {
+    background: #000000 !important;
+  }
+
+  .post-card {
+    background: transparent !important;
+    border-radius: 0px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .post-card__media-container {
+    position: relative !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0px !important;
+    aspect-ratio: 16 / 11 !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  .post-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .post-card__video,
+  .post-card__carousel-media {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Hide sidebars & controls on mobile */
+  .feed__sidebar--left,
+  .feed__sidebar--right,
+  .feed__controls,
+  .feed__location-display,
+  .feed__category-badge,
+  .feed__trending-header,
+  .feed__personalized-empty,
+  .feed__setup-required {
+    display: none !important;
+  }
+
+  .feed__posts-list {
+    gap: 2px !important;
+    background: #000000;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .feed__scrollable-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #000000;
+  }
+
+  .post-card__header {
+    display: none !important;
+  }
+
+  /* ===== MOBILE - FORCE EVERYTHING ON ONE ROW ===== */
+  .post-card__overlay-top {
+    padding: 10px !important;
+  }
+
+  .post-card__business-info-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  .post-card__business-info {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .post-card__logo-wrapper {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .post-card__business-logo,
+  .post-card__business-logo-placeholder {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+  }
+
+  .post-card__business-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .post-card__business-name-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .post-card__business-link {
+    font-size: 13px !important;
+    color: white !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100px !important;
+  }
+
+  .post-card__meta {
+    font-size: 9px !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .post-card__time {
+    font-size: 9px !important;
+  }
+
+  .post-card__distance-wrapper {
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
+  }
+
+  .post-card__distance-badge-modern {
+    padding: 3px 8px !important;
+    gap: 3px !important;
+  }
+
+  .post-card__distance-badge-modern span {
+    font-size: 9px !important;
+  }
+
+  .post-card__distance-badge-modern .distance-icon {
+    font-size: 9px !important;
+  }
+
+  .post-card__verified-badge {
+    border-radius: 0px !important;
+    font-size: 8px !important;
+    padding: 1px 4px !important;
+  }
+
+  .post-card__carousel-arrow {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 22px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: white !important;
+    border-radius: 50% !important;
+  }
+
+  .post-card__carousel-arrow--left {
+    left: 10px !important;
+  }
+
+  .post-card__carousel-arrow--right {
+    right: 10px !important;
+  }
+
+  .post-card__carousel-dots {
+    bottom: 12px !important;
+  }
+
+  .post-card__carousel-dot {
+    width: 5px !important;
+    height: 5px !important;
+    border-radius: 0px !important;
+  }
+
+  .post-card__carousel-dot.active {
+    width: 18px !important;
+    border-radius: 0px !important;
+  }
+
+  .post-card__menu {
+    display: none !important;
+  }
+
+  .post-card__overlay-bottom {
+    position: absolute;
+    bottom: 0 !important;
+    left: 0;
+    right: 0;
+    padding: 24px 16px 20px !important;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    border-radius: 0px !important;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .post-card__overlay-bottom .post-card__hashtag {
+    font-size: 11px !important;
+  }
+
+  .post-card__top-bar,
+  .post-card__score-indicator-modern,
+  .post-card__content,
+  .post-card__title {
+    display: none !important;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+.post-card__action-btn.loading {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.post-card__loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.post-card__action-btn:focus-visible {
+  outline: 2px solid var(--postcard-primary);
+  outline-offset: 2px;
+}
+
+.post-card__carousel-dot[aria-selected="true"] {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+.post-card__carousel-dot:focus-visible {
+  outline: 2px solid var(--postcard-primary);
+  outline-offset: 2px;
+}

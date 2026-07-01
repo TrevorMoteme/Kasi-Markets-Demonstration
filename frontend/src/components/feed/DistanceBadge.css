@@ -1,0 +1,228 @@
+.distance-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  line-height: 1;
+  transition: all 0.2s ease;
+  user-select: none;
+  cursor: default;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.distance-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.distance-badge-icon {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.distance-badge-text {
+  font-size: 11px;
+  letter-spacing: 0.2px;
+}
+
+/* Compact variant */
+.distance-badge-compact {
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  gap: 3px;
+}
+
+.distance-badge-compact .distance-badge-icon {
+  font-size: 11px;
+}
+
+.distance-badge-compact .distance-badge-text {
+  font-size: 10px;
+}
+
+/* Inline variant */
+.distance-badge-inline {
+  display: inline;
+  padding: 0;
+  background: none !important;
+  border-radius: 0;
+  box-shadow: none;
+  color: inherit;
+  gap: 3px;
+}
+
+.distance-badge-inline:hover {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.9;
+}
+
+.distance-badge-inline .distance-badge-icon {
+  font-size: 1em;
+  display: inline;
+}
+
+.distance-badge-inline .distance-badge-text {
+  display: inline;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+/* Pill variant */
+.distance-badge-pill {
+  border: 1px solid;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  gap: 6px;
+}
+
+.distance-badge-pill:hover {
+  background: white;
+}
+
+.distance-badge-pill .distance-badge-icon {
+  font-size: 13px;
+}
+
+.distance-badge-pill .distance-badge-text {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.distance-badge-pill .distance-badge-text::after {
+  content: '•';
+  margin-left: 2px;
+  opacity: 0.6;
+}
+
+/* Detailed variant */
+.distance-badge-detailed {
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #2d3748;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.distance-badge-detailed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.distance-badge-detailed .distance-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.distance-badge-detailed .distance-badge-icon {
+  font-size: 16px;
+}
+
+.distance-badge-detailed .distance-badge-category {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.distance-badge-detailed .distance-badge-value {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1a202c;
+}
+
+.distance-badge-detailed .distance-badge-description {
+  font-size: 12px;
+  color: #718096;
+  line-height: 1.4;
+}
+
+/* Color variants based on distance category */
+.distance-badge-worldwide {
+  background: linear-gradient(135deg, #805ad5, #9f7aea) !important;
+}
+
+.distance-badge-walking {
+  background: linear-gradient(135deg, #38a169, #48bb78) !important;
+}
+
+.distance-badge-local {
+  background: linear-gradient(135deg, #3182ce, #4299e1) !important;
+}
+
+.distance-badge-city {
+  background: linear-gradient(135deg, #3182ce, #4299e1) !important;
+}
+
+.distance-badge-regional {
+  background: linear-gradient(135deg, #d69e2e, #ecc94b) !important;
+}
+
+.distance-badge-national {
+  background: linear-gradient(135deg, #d69e2e, #ecc94b) !important;
+}
+
+.distance-badge-continental {
+  background: linear-gradient(135deg, #ed8936, #f6ad55) !important;
+}
+
+.distance-badge-global {
+  background: linear-gradient(135deg, #4a5568, #718096) !important;
+}
+
+/* Animation for new badges */
+@keyframes badgePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.distance-badge-new {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .distance-badge-detailed {
+    min-width: 160px;
+    max-width: 200px;
+    padding: 10px;
+  }
+
+  .distance-badge-detailed .distance-badge-value {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .distance-badge-pill {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .distance-badge-pill .distance-badge-text {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,273 @@
+/* BottomNav.css - Immersive Design Matching Feed/PostCard */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --bottomnav-bg: rgba(18, 18, 18, 0.95);
+  --bottomnav-border: rgba(255, 255, 255, 0.08);
+  --bottomnav-active: #a855f7;
+  --bottomnav-active-glow: rgba(168, 85, 247, 0.3);
+  --bottomnav-text: rgba(255, 255, 255, 0.7);
+  --bottomnav-text-active: #ffffff;
+  --bottomnav-special-gradient: linear-gradient(135deg, #8b5cf6, #c084fc);
+  --bottomnav-special-glow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bottomnav-bg: rgba(18, 18, 18, 0.95);
+    --bottomnav-border: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Desktop Styles - Minimal, transparent */
+.ig-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--bottomnav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--bottomnav-border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.ig-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 40px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--bottomnav-text);
+  position: relative;
+}
+
+/* Position specific styling for 5-button layout */
+.ig-position-left {
+  justify-content: flex-start;
+}
+
+.ig-position-left-center {
+  justify-content: center;
+}
+
+.ig-position-center {
+  justify-content: center;
+}
+
+.ig-position-right-center {
+  justify-content: center;
+}
+
+.ig-position-right {
+  justify-content: flex-end;
+}
+
+/* For 3-button layout - distribute evenly */
+.ig-bottom-nav:has(.ig-position-left):has(.ig-position-center):has(.ig-position-right) {
+  justify-content: space-between;
+  padding: 8px 24px;
+}
+
+.ig-bottom-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.ig-bottom-nav-item:active {
+  transform: scale(0.96);
+}
+
+.ig-bottom-nav-item svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: all 0.2s ease;
+}
+
+/* Active state - Purple glow matching feed theme */
+.ig-bottom-nav-item.ig-active {
+  color: var(--bottomnav-active);
+  text-shadow: 0 0 8px var(--bottomnav-active-glow);
+}
+
+.ig-bottom-nav-item.ig-active svg {
+  stroke: var(--bottomnav-active);
+  filter: drop-shadow(0 0 4px var(--bottomnav-active-glow));
+}
+
+.ig-bottom-nav-label {
+  font-size: 10px;
+  font-weight: 500;
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.ig-active .ig-bottom-nav-label {
+  color: var(--bottomnav-active);
+  font-weight: 600;
+}
+
+/* Special Create Button - Glowing purple gradient */
+.ig-bottom-nav-item.ig-special {
+  background: var(--bottomnav-special-gradient);
+  color: white;
+  border-radius: 50%;
+  padding: 12px;
+  margin-top: -12px;
+  box-shadow: var(--bottomnav-special-glow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ig-bottom-nav-item.ig-special svg {
+  stroke: white;
+  width: 28px;
+  height: 28px;
+}
+
+.ig-bottom-nav-item.ig-special:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6);
+}
+
+.ig-bottom-nav-item.ig-special:active {
+  transform: scale(0.96);
+}
+
+/* Ripple effect on click */
+.ig-bottom-nav-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+  pointer-events: none;
+}
+
+.ig-bottom-nav-item:active::after {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== MOBILE - IMMERSIVE FEED MATCHING ===== */
+@media (max-width: 767px) {
+  .ig-bottom-nav {
+    padding: 6px 16px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .ig-bottom-nav-item {
+    padding: 6px 8px;
+    min-width: 48px;
+    min-height: 48px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .ig-bottom-nav-item svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .ig-bottom-nav-label {
+    font-size: 9px;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Active state on mobile - brighter */
+  .ig-bottom-nav-item.ig-active {
+    color: #a855f7;
+  }
+
+  .ig-active .ig-bottom-nav-label {
+    color: #a855f7;
+    font-weight: 600;
+  }
+
+  /* Special create button on mobile */
+  .ig-bottom-nav-item.ig-special {
+    padding: 10px;
+    margin-top: -10px;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  }
+
+  .ig-bottom-nav-item.ig-special svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Hide labels on mobile for cleaner look (optional) */
+  /* .ig-bottom-nav-label { display: none; } */
+}
+
+/* ===== DESKTOP - Light theme ===== */
+@media (min-width: 768px) {
+  .ig-bottom-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .ig-bottom-nav-item {
+    color: #6b7280;
+  }
+
+  .ig-bottom-nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .ig-bottom-nav-item.ig-active {
+    color: #8b5cf6;
+  }
+
+  .ig-active .ig-bottom-nav-label {
+    color: #8b5cf6;
+  }
+
+  .ig-bottom-nav-label {
+    color: #6b7280;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes navBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.ig-bottom-nav-item.ig-special:active {
+  animation: navBounce 0.3s ease;
+}
+
+/* Safe area insets for notched phones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .ig-bottom-nav {
+    padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  }
+}

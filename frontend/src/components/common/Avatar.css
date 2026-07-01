@@ -1,0 +1,68 @@
+/* Avatar.css - All classes use ig- prefix to avoid conflicts */
+.ig-avatar-img {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.ig-avatar-placeholder {
+  border-radius: 50%;
+  background: linear-gradient(135deg, #833AB4, #E1306C);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Story Ring Styles */
+.ig-story-ring {
+  border-radius: 50%;
+  background: var(--ig-story-gradient, linear-gradient(135deg, #833AB4, #F77737, #E1306C, #C13584));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.ig-story-ring:hover {
+  transform: scale(1.02);
+}
+
+.ig-story-ring:active {
+  transform: scale(0.98);
+}
+
+.ig-story-ring-inner {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 50%;
+  background: var(--ig-card-bg, white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-story-ring.ig-viewed {
+  background: var(--ig-border, #DBDBDB);
+}
+
+.ig-story-ring .ig-avatar-img,
+.ig-story-ring .ig-avatar-placeholder {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50%;
+  border: 2px solid var(--ig-card-bg, white);
+  box-sizing: border-box;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .ig-story-ring-inner {
+    background: #121212;
+  }
+  .ig-story-ring.ig-viewed {
+    background: #262626;
+  }
+}

@@ -1,0 +1,74 @@
+.ui-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+/* Variants */
+.ui-card--default {
+  background-color: var(--color-white);
+  border-color: var(--color-grey-border);
+}
+
+.ui-card--elevated {
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+.ui-card--outlined {
+  background-color: transparent;
+  border-color: var(--color-grey-border);
+  box-shadow: none;
+}
+
+.ui-card--filled {
+  background-color: var(--color-grey-bg);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Padding Sizes */
+.ui-card--padding-none {
+  padding: 0;
+}
+
+.ui-card--padding-small {
+  padding: var(--space-3);
+}
+
+.ui-card--padding-medium {
+  padding: var(--space-4);
+}
+
+.ui-card--padding-large {
+  padding: var(--space-6);
+}
+
+/* Clickable State */
+.ui-card--clickable {
+  cursor: pointer;
+}
+
+.ui-card--clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-grey-medium);
+}
+
+.ui-card--clickable:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .ui-card--padding-medium {
+    padding: var(--space-3);
+  }
+
+  .ui-card--padding-large {
+    padding: var(--space-4);
+  }
+}

@@ -1,0 +1,177 @@
+/* LazyMediaGrid.css - Complete with multiple media grid support */
+.lazy-media-grid {
+  margin: 10px 0;
+  width: 100%;
+}
+
+/* Single item - full width */
+.lazy-media-grid--single {
+  display: block;
+  width: 100%;
+}
+
+.lazy-media-grid--single .lazy-media-grid__item {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+/* Double item - 2 columns */
+.lazy-media-grid--double {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+
+/* Triple item - 3 columns */
+.lazy-media-grid--triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+/* Quad item - 2x2 grid */
+.lazy-media-grid--quad {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+}
+
+/* Base item styles */
+.lazy-media-grid__item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background: #f5f5f5;
+  aspect-ratio: 1 / 1; /* Square by default for grid items */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Single item - no fixed aspect ratio */
+.lazy-media-grid--single .lazy-media-grid__item {
+  aspect-ratio: auto;
+  min-height: 200px;
+}
+
+/* Image styles */
+.lazy-media-grid__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.lazy-media-grid__item:hover .lazy-media-grid__image {
+  transform: scale(1.02);
+}
+
+/* Video item styles */
+.lazy-media-grid__item--video {
+  background: #000;
+}
+
+.lazy-media-grid__item--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* More items overlay */
+.lazy-media-grid__item--more {
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+}
+
+.lazy-media-grid__more-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Error state */
+.lazy-media-grid__item--error {
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 14px;
+  gap: 8px;
+  min-height: 150px;
+}
+
+.lazy-media-grid__error-icon {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+
+.lazy-media-grid__retry {
+  padding: 6px 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.lazy-media-grid__retry:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Loading state */
+.lazy-media-grid__item--loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lazy-media-grid--single .lazy-media-grid__item {
+    max-height: 400px;
+  }
+
+  .lazy-media-grid--triple {
+    grid-template-columns: repeat(2, 1fr); /* 3 items become 2 columns on mobile */
+  }
+
+  .lazy-media-grid__more-count {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lazy-media-grid--single .lazy-media-grid__item {
+    max-height: 300px;
+  }
+
+  .lazy-media-grid--double,
+  .lazy-media-grid--triple,
+  .lazy-media-grid--quad {
+    gap: 2px;
+  }
+}

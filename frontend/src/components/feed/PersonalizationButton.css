@@ -1,0 +1,112 @@
+/* PersonalizationButton.css */
+.personalization-button {
+  position: relative;
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+}
+
+.personalization-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.personalization-button.no-preferences {
+  animation: pulse 2s infinite;
+  border-color: var(--color-primary);
+}
+
+.personalization-button.has-preferences {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+}
+
+.personalization-button-icon {
+  font-size: var(--text-lg);
+  line-height: 1;
+}
+
+.personalization-button-text {
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.personalization-button-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--color-error);
+  color: var(--color-white);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+  padding: 2px 6px;
+  border-radius: 10px;
+  animation: bounce 1s infinite alternate;
+}
+
+/* Button sizes */
+.personalization-button.size-small {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.personalization-button.size-large {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-lg);
+}
+
+/* Button variants */
+.personalization-button.variant-outline.no-preferences {
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.personalization-button.variant-outline.has-preferences {
+  border: 2px solid var(--color-primary-dark);
+  color: var(--color-primary-dark);
+  background: transparent;
+}
+
+.personalization-button.variant-secondary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .personalization-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .personalization-button-text {
+    white-space: normal;
+    text-align: center;
+  }
+}

@@ -1,0 +1,54 @@
+.infinite-scroll {
+  position: relative;
+  width: 100%;
+}
+
+.infinite-scroll__sentinel {
+  pointer-events: none;
+  visibility: hidden;
+  height: 1px;
+  width: 100%;
+}
+
+.infinite-scroll__loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.infinite-scroll__end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+  width: 100%;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.infinite-scroll__end-message {
+  position: relative;
+  padding: 0 20px;
+  color: #666;
+}
+
+.infinite-scroll__end-message::before,
+.infinite-scroll__end-message::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ddd);
+}
+
+.infinite-scroll__end-message::before {
+  right: 100%;
+}
+
+.infinite-scroll__end-message::after {
+  left: 100%;
+  background: linear-gradient(90deg, #ddd, transparent);
+}

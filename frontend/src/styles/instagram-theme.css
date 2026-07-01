@@ -1,0 +1,74 @@
+/* instagram-theme.css - Instagram Design System Variables */
+/* All variables use --ig- prefix to avoid conflicts with your existing --color- variables */
+
+:root {
+  /* Instagram Brand Colors - IG prefix to avoid clashes */
+  --ig-black: #000000;
+  --ig-white: #FFFFFF;
+  --ig-blue: #0095f6;
+  --ig-dark-blue: #00376b;
+  --ig-purple: #833AB4;
+  --ig-orange: #F77737;
+  --ig-red-pink: #E1306C;
+  --ig-red-purple: #C13584;
+  --ig-yellow: #FCAF45;
+
+  /* Story Gradient */
+  --ig-story-gradient: linear-gradient(135deg, #833AB4 0%, #F77737 40%, #E1306C 70%, #C13584 100%);
+
+  /* UI Colors - IG prefix */
+  --ig-background: #FAFAFA;
+  --ig-card-bg: #FFFFFF;
+  --ig-border: #DBDBDB;
+  --ig-secondary-text: #8E8E8E;
+  --ig-primary-text: #262626;
+
+  /* Status Colors */
+  --ig-success: #29A640;
+  --ig-error: #E44747;
+  --ig-like: #ED4956;
+
+  /* Spacing */
+  --ig-space-xs: 4px;
+  --ig-space-sm: 8px;
+  --ig-space-md: 12px;
+  --ig-space-lg: 16px;
+  --ig-space-xl: 24px;
+
+  /* Animations */
+  --ig-transition: 0.2s ease;
+}
+
+/* Dark Mode - Only applies to Instagram components, won't affect your existing dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ig-background: #121212;
+    --ig-card-bg: #121212;
+    --ig-border: #262626;
+    --ig-secondary-text: #A0A0A0;
+    --ig-primary-text: #F5F5F5;
+  }
+}
+
+/* Heart Animation - Unique class names to avoid conflicts */
+@keyframes igHeartPop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  30% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.9; }
+  60% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.ig-heart-animation {
+  animation: igHeartPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+/* Story Ring Pulse */
+@keyframes igStoryRingPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.ig-story-ring-pulse {
+  animation: igStoryRingPulse 0.3s ease-out;
+}

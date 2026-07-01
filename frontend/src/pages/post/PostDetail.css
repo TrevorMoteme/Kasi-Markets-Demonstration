@@ -1,0 +1,110 @@
+/* ===== BUSINESS LOGO IN POST DETAIL ===== */
+.post-detail__business-logo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.post-detail__business-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-white);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.post-detail__business-logo-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border: 3px solid var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--color-white);
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+/* Update existing business info to include logo */
+.post-detail__business-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Add a new class for business header with logo */
+.post-detail__business-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.post-detail__business-details {
+  flex: 1;
+}
+
+.post-detail__business-name {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.post-detail__business-name:hover {
+  color: var(--color-grey-dark);
+}
+
+.post-detail__business-description {
+  font-size: var(--text-sm);
+  color: var(--color-grey-medium);
+  line-height: 1.4;
+}
+
+.post-detail__business-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .post-detail__business-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .post-detail__business-logo-placeholder {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .post-detail__business-header {
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .post-detail__business-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .post-detail__business-logo-placeholder {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+}

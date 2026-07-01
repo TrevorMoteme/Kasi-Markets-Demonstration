@@ -1,0 +1,243 @@
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  animation: fadeIn var(--transition-normal);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 90vw;
+  background-color: var(--color-white);
+  border-left: 1px solid var(--color-grey-border);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight var(--transition-normal);
+  overflow-y: auto;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--color-grey-border);
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sidebar__logo {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.sidebar__title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+}
+
+.sidebar__close {
+  background: none;
+  border: none;
+  font-size: var(--text-2xl);
+  line-height: 1;
+  padding: var(--space-1);
+  cursor: pointer;
+  color: var(--color-grey-medium);
+  transition: color var(--transition-fast);
+}
+
+.sidebar__close:hover {
+  color: var(--color-black);
+}
+
+.sidebar__nav {
+  flex: 1;
+  padding: var(--space-4) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* User Section */
+.sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0 var(--space-4) var(--space-4);
+  border-bottom: 1px solid var(--color-grey-border);
+}
+
+.sidebar__user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-base);
+}
+
+.sidebar__user-info {
+  flex: 1;
+}
+
+.sidebar__user-name {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-black);
+  margin-bottom: var(--space-1);
+}
+
+.sidebar__user-type {
+  font-size: var(--text-sm);
+  color: var(--color-grey-medium);
+  text-transform: capitalize;
+}
+
+/* Sections */
+.sidebar__section {
+  padding: 0 var(--space-4);
+}
+
+.sidebar__section-title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-grey-medium);
+  margin-bottom: var(--space-2);
+  padding: 0 var(--space-2);
+}
+
+.sidebar__item {
+  display: block;
+  width: 100%;
+  padding: var(--space-3) var(--space-2);
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  color: var(--color-grey-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--space-1);
+}
+
+.sidebar__item:hover {
+  color: var(--color-black);
+  background-color: var(--color-grey-bg);
+}
+
+.sidebar__item--active {
+  color: var(--color-black);
+  font-weight: var(--font-weight-semibold);
+  background-color: var(--color-grey-bg);
+}
+
+.sidebar__item--logout {
+  color: var(--color-error);
+  font-weight: var(--font-weight-medium);
+}
+
+.sidebar__item--logout:hover {
+  color: var(--color-white);
+  background-color: var(--color-error);
+}
+
+/* Auth Section */
+.sidebar__auth {
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.sidebar__auth-message {
+  font-size: var(--text-base);
+  color: var(--color-grey-medium);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.sidebar__auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sidebar__auth-btn {
+  width: 100%;
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sidebar__header {
+    padding: var(--space-3);
+  }
+
+  .sidebar__nav {
+    padding: var(--space-3) 0;
+  }
+
+  .sidebar__section {
+    padding: 0 var(--space-3);
+  }
+
+  .sidebar__auth {
+    padding: var(--space-3);
+  }
+}
+
+
+
+
+

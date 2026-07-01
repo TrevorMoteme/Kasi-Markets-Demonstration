@@ -1,0 +1,294 @@
+/* Profile.css - Instagram Style */
+.profile-page {
+  min-height: 100vh;
+  background: var(--instagram-background, #FAFAFA);
+  padding-bottom: 70px;
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header */
+.profile-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.profile-back-btn, .profile-menu-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--instagram-primary-text, #262626);
+}
+
+.profile-username {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--instagram-primary-text, #262626);
+}
+
+/* Profile Info Row */
+.profile-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 24px;
+}
+
+.profile-stats {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.profile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--instagram-primary-text, #262626);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--instagram-secondary-text, #8E8E8E);
+}
+
+/* Bio */
+.profile-bio {
+  padding: 0 16px 16px;
+}
+
+.profile-full-name {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--instagram-primary-text, #262626);
+}
+
+.profile-bio-text {
+  font-size: 14px;
+  margin: 4px 0;
+  color: var(--instagram-primary-text, #262626);
+}
+
+.profile-website {
+  color: var(--instagram-blue, #0095f6);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Actions */
+.profile-actions {
+  display: flex;
+  gap: 8px;
+  padding: 8px 16px 16px;
+}
+
+.profile-edit-btn, .profile-share-btn {
+  flex: 1;
+  padding: 8px;
+  background: var(--instagram-background, #FAFAFA);
+  border: 1px solid var(--instagram-border, #DBDBDB);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--instagram-primary-text, #262626);
+}
+
+.profile-add-btn {
+  width: 40px;
+  background: var(--instagram-background, #FAFAFA);
+  border: 1px solid var(--instagram-border, #DBDBDB);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--instagram-primary-text, #262626);
+}
+
+/* Business Info */
+.profile-business-info {
+  padding: 8px 16px 16px;
+  font-size: 14px;
+  color: var(--instagram-secondary-text, #8E8E8E);
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  border-top: 1px solid var(--instagram-border, #DBDBDB);
+}
+
+.profile-tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--instagram-secondary-text, #8E8E8E);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.profile-tab.active {
+  color: var(--instagram-primary-text, #262626);
+  border-bottom-color: var(--instagram-primary-text, #262626);
+}
+
+/* Posts Grid */
+.profile-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--instagram-background, #FAFAFA);
+}
+
+.profile-grid-item {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--instagram-border, #DBDBDB);
+}
+
+.profile-grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-grid-image:hover {
+  transform: scale(1.02);
+}
+
+.profile-grid-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background: var(--instagram-border, #DBDBDB);
+  color: var(--instagram-secondary-text, #8E8E8E);
+}
+
+.grid-multi-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: white;
+  font-size: 12px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Empty State */
+.profile-empty-state {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.profile-empty-state p {
+  color: var(--instagram-secondary-text, #8E8E8E);
+}
+
+/* Logout Button */
+.profile-logout-btn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 20px auto;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: var(--instagram-error, #E44747);
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Loading */
+.profile-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .profile-page {
+    background: #121212;
+  }
+
+  .profile-back-btn, .profile-menu-btn, .profile-username {
+    color: #F5F5F5;
+  }
+
+  .stat-value, .profile-full-name, .profile-bio-text {
+    color: #F5F5F5;
+  }
+
+  .profile-edit-btn, .profile-share-btn, .profile-add-btn {
+    background: #1E1E1E;
+    border-color: #333;
+    color: #F5F5F5;
+  }
+
+  .profile-tabs {
+    border-top-color: #333;
+  }
+
+  .profile-tab.active {
+    color: #F5F5F5;
+    border-bottom-color: #F5F5F5;
+  }
+
+  .profile-posts-grid {
+    background: #121212;
+  }
+
+  .profile-grid-item {
+    background: #333;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .profile-container {
+    max-width: 100%;
+  }
+
+  .profile-stats {
+    gap: 16px;
+  }
+
+  .profile-posts-grid {
+    gap: 1px;
+  }
+
+  .profile-edit-btn, .profile-share-btn {
+    font-size: 13px;
+  }
+}
