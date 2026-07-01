@@ -32,3 +32,8 @@ logs/
 # Media
 media/
 uploads/
+
+# Large files
+frontend/all_files_complete.txt
+*.log
+*.txt
